@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import WeatherCard from "./WeatherCard";
 
-const API_KEY = "4b6f2d633a3760fe2d80c3e839279d22"; 
+const API_KEY = "YOUR_API_KEY"; 
 
 const Weather = () => {
   const [weatherData, setWeatherData] = useState(null);
-  const [city, setCity] = useState("");
 
   const fetchWeather = async (cityName) => {
     try {
@@ -27,14 +26,13 @@ const Weather = () => {
   };
 
   const handleSearch = (cityName) => {
-    setCity(cityName);
     fetchWeather(cityName);
   };
 
   return (
     <div className="weather-container">
-      <h1>⛅Weather App</h1>
-      < SearchBar onSearch={handleSearch} />
+      <h1>⛅ Weather App</h1>
+      <SearchBar onSearch={handleSearch} />
       {weatherData && <WeatherCard data={weatherData} />}
     </div>
   );

@@ -1,0 +1,73 @@
+/* Full page setup */
+body, html, #root, .app {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #ffd1dc, #cce7ff); /* pastel pink → blue */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Container in front of clouds */
+.weather-container {
+  position: relative;
+  z-index: 10; /* above clouds */
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Search bar */
+.search-bar input {
+  padding: 10px;
+  width: 200px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.search-bar button {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: #ffb6c1;
+  color: white;
+  cursor: pointer;
+}
+
+/* Weather card */
+.weather-card {
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+/* Clouds */
+.cloud {
+  position: absolute;
+  opacity: 0.5;
+  pointer-events: none; /* click-through */
+  z-index: 5;
+}
+
+/* Cloud animations */
+@keyframes floatCloudsAll {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(100px, 50px) rotate(5deg); }
+  50% { transform: translate(-150px, 150px) rotate(-3deg); }
+  75% { transform: translate(200px, -100px) rotate(4deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* Each cloud moves differently */
+.cloud1 { top: 10%; left: 5%; width: 200px; animation: floatCloudsAll 60s linear infinite; }
+.cloud2 { top: 30%; left: 50%; width: 250px; animation: floatCloudsAll 80s linear infinite; }
+.cloud3 { top: 50%; left: 20%; width: 220px; animation: floatCloudsAll 100s linear infinite; }
+.cloud4 { top: 70%; left: 40%; width: 180px; animation: floatCloudsAll 120s linear infinite; }
+.cloud5 { top: 15%; left: 70%; width: 210px; animation: floatCloudsAll 90s linear infinite; }
